@@ -11,3 +11,4 @@ if word == r_word:
     print("You survived!")
 else:
     print("You lost!")
+# poynamka na konci
