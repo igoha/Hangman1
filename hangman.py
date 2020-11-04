@@ -11,12 +11,19 @@ def foo_test_word(letter):
     if random_word.count(letter) == 0:
         return
     foo_add_letter(letter)
+    return
 
-letters = set()
+
+def foo_add_letter(letter):
+    for pos, let in enumerate(random_word):
+        if let == letter:
+            guess_word[pos] = let
+    return
+
+
 random.seed()
 word_list = ['python', 'java', 'kotlin', 'javascript']
 random_word = random.choice(word_list)  # random word from word_list
-# g_word = r_word[0:3] + "-" * (len(r_word) - 3)  # generated word first 3 letter from r_word + "-"
 guess_word = list((len(random_word) * "-"))
 print("H A N G M A N")
 for _ in range(8):
@@ -24,5 +31,3 @@ for _ in range(8):
     letter = input("Input a letter: ")
     letters.add(letter)
     foo_test_word(letter)
-
-print(letters)
