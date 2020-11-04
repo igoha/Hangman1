@@ -9,6 +9,7 @@ def foo_print_word(g_word):
 
 def foo_test_word(letter):
     if random_word.count(letter) == 0:
+        print("That letter doesn't appear in the word")
         return
     foo_add_letter(letter)
     return
@@ -29,5 +30,7 @@ print("H A N G M A N")
 for _ in range(8):
     foo_print_word(guess_word)
     letter = input("Input a letter: ")
-    letters.add(letter)
     foo_test_word(letter)
+print('''
+Thanks for playing!
+We'll see how well you did in the next stage''')
