@@ -20,7 +20,6 @@ def foo_test_word(leter):
     else:
         if leter in letter_set:
             print("No improvements")
-            global counter
             counter -= 1
         else:
             foo_add_letter(leter)
@@ -44,6 +43,8 @@ while counter > 0:
     foo_print_word(guess_word)
     letter = input("Input a letter: ")
     foo_test_word(letter)
-print('''
-Thanks for playing!
-We'll see how well you did in the next stage''')
+if guess_word == random_word:
+    print('''You guessed the word!
+You survived!''')
+else:
+    print("You lost!")
