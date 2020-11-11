@@ -17,12 +17,11 @@ def foo_test_word(leter):
         global counter
         counter -= 1
         return
+    if leter in letter_set:
+        print("No improvements")
+        counter -= 1
     else:
-        if leter in letter_set:
-            print("No improvements")
-            counter -= 1
-        else:
-            foo_add_letter(leter)
+        foo_add_letter(leter)
     return
 
 
@@ -43,8 +42,10 @@ while counter > 0:
     foo_print_word(guess_word)
     letter = input("Input a letter: ")
     foo_test_word(letter)
-if guess_word == random_word:
-    print('''You guessed the word!
+    test_word = "".join(guess_word)
+    if test_word == random_word:
+        print('''You guessed the word!
 You survived!''')
-else:
+        break
+if test_word != random_word:
     print("You lost!")
