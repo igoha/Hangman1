@@ -40,19 +40,24 @@ def foo_add_letter(leter):
     return
 
 
-random.seed()
-word_list = ['python', 'java', 'kotlin', 'javascript']
-random_word = random.choice(word_list)  # random word from word_list
-guess_word = list((len(random_word) * "-"))
 print("H A N G M A N")
-while counter > 0:
-    foo_print_word(guess_word)
-    letter = input("Input a letter: ")
-    foo_test_word(letter)
-    test_word = "".join(guess_word)
-    if test_word == random_word:
-        print('''You guessed the word!
-You survived!''')
+while True:
+    print('Type "play" to play the game, "exit" to quit: ')
+    if input() == "exit":
         break
-if test_word != random_word:
-    print("You lost!")
+    random.seed()
+    word_list = ['python', 'java', 'kotlin', 'javascript']
+    random_word = random.choice(word_list)  # random word from word_list
+    guess_word = list((len(random_word) * "-"))
+    while counter > 0:
+        foo_print_word(guess_word)
+        letter = input("Input a letter: ")
+        foo_test_word(letter)
+        test_word = "".join(guess_word)
+        if test_word == random_word:
+            print('''You guessed the word!
+You survived!
+''')
+            break
+    if test_word != random_word:
+        print("You lost!\n")
