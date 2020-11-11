@@ -13,20 +13,18 @@ def foo_print_word(g_word):
 
 def foo_test_word(leter):
     global counter
-    if leter.islower() is not True:
-        print("Please enter a lowercase English letter")
-        counter -= 1
-        return
     if len(leter) != 1:
         print("You should input a single letter")
-        counter -= 1
         return
-    if random_word.count(leter) == 0:
-        print("That letter doesn't appear in the word")
-        counter -= 1
+    if leter.islower() is not True:
+        print("Please enter a lowercase English letter")
         return
     if leter in letter_set:
         print("You've already guessed this letter")
+        return
+    if random_word.count(leter) == 0:
+        print("That letter doesn't appear in the word")
+        letter_set.add(leter)
         counter -= 1
         return
     else:
